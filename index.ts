@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from 'chalk'
-import chalkAnimation from 'chalk-animation';
+//import chalkAnimation from 'chalk-animation';
 
 const menuOptions = [
     'Convert currency',
@@ -37,11 +37,10 @@ const sleep = () => {
 }
 
 async function welcome() {
-    const style = chalkAnimation.radar(
+    const style = chalk.green(
       'Welcome to this Currency Converter Program \n'
     );
     await sleep();
-    style.stop()
 }
 await welcome()
 async function askQuestions() {

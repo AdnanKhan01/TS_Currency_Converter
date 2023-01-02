@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from 'chalk';
-import chalkAnimation from 'chalk-animation';
+//import chalkAnimation from 'chalk-animation';
 const menuOptions = [
     'Convert currency',
     'Quit'
@@ -13,18 +13,21 @@ var paisa;
     paisa[paisa["GBP"] = 273] = "GBP";
     paisa[paisa["EUR"] = 243] = "EUR";
 })(paisa || (paisa = {}));
+//Dollar
 var dol;
 (function (dol) {
     dol[dol["PKR"] = 226] = "PKR";
     dol[dol["GBP"] = 0.83] = "GBP";
     dol[dol["EUR"] = 0.94] = "EUR";
 })(dol || (dol = {}));
+//EUR
 var eu;
 (function (eu) {
     eu[eu["PKR"] = 243] = "PKR";
     eu[eu["GBP"] = 0.88] = "GBP";
     eu[eu["USD"] = 1.07] = "USD";
 })(eu || (eu = {}));
+//GBP
 var gb;
 (function (gb) {
     gb[gb["PKR"] = 273] = "PKR";
@@ -35,9 +38,8 @@ const sleep = () => {
     return new Promise((r) => setTimeout(r, 3150));
 };
 async function welcome() {
-    const style = chalkAnimation.radar('Welcome to this Currency Converter Program \n');
+    const style = chalk.green('Welcome to this Currency Converter Program \n');
     await sleep();
-    style.stop();
 }
 await welcome();
 async function askQuestions() {
